@@ -1,0 +1,92 @@
+
+
+
+
+<div class="homewrapper">
+<div class="nav">
+    <div class="innernav">
+      <h2>ChillHaven</h2>
+       <div style="display: flex; gap: 130px;">
+      <h2 style="cursor: pointer;" (click)="goHome()">Home</h2>
+       <h2 style="cursor: pointer;" (click)="goDetails()">Detail</h2>
+      </div>
+      <button class="logoutwrapper" (click)="showLogoutModal = true">
+        LOGOUT
+      </button>
+    </div>
+  </div>
+
+  <div class="imagedisplaywrap">
+    <h1>Explore New Homes</h1>
+    <input
+    type="text"
+    placeholder="Search property..."
+    [(ngModel)]="searchText"
+    (input)="filterProperties()"
+  />
+  </div>
+
+
+
+
+<div>
+<div class="productswrapper">
+
+  <div class="imageboxwrap"  *ngFor="let property of filteredProperties">
+
+    <div class="textwrapper">
+      <h3>{{ property.title }}</h3>
+
+      <div class="locateholder">
+        <h3>{{ property.state }}/{{ property.country }}</h3>
+      </div>
+    </div>
+
+    <div class="innerimagewrapper">
+      <img
+        [src]="property.image1 || 'assets/home13.jpeg'"
+        style="width: 100%; height: 100%; object-fit: cover;"
+      />
+    </div>
+
+    <div style="display:flex; justify-content:flex-end; margin-right: 20px;">
+      <!-- <h2>₦{{ property.amount }}</h2> -->
+       <h2>{{ property.amount | currency:'NGN':'symbol-narrow' }}</h2>
+    </div>
+
+    <div class="roomwrap">
+      <h4>Rooms - {{ property.rooms }}</h4>
+      <h4>Kitchen - {{ property.kitchen }}</h4>
+      <h4>Bathroom - {{ property.bathroom }}</h4>
+      <h4>Toilet - {{ property.toilet }}</h4>
+      <h4>LGA - {{ property.lga }}</h4>
+    </div>
+
+    <h4 style="margin-left: 10px;">{{ property.description }}</h4>
+
+   <button
+  (click)="viewDetails(property)"
+  style="width: 80px; height: 30px; background-color: blue; color: white;
+  border: 1px solid black; margin-left: 80%; margin-bottom: 10px; cursor: pointer;"
+>
+  See more
+</button>
+
+  </div>
+
+
+
+</div>
+
+<div class="modal-backdrop" *ngIf="showLogoutModal">
+  <div class="modal">
+    <h3 style="margin-left: 40px; margin-top: 40px;">Do you want to logout?</h3>
+
+    <div class="modal-buttons">
+      <button (click)="confirmLogout()">Yes</button>
+      <button (click)="cancelLogout()">No</button>
+    </div>
+  </div>
+</div>
+
+</div>

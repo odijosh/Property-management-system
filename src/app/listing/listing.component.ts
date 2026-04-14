@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PropertyService } from '../Services/property.service';
-import { Property } from '../Interfaces/property.interface';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,10 +11,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./listing.component.css'],
   imports: [ReactiveFormsModule, CommonModule]
 })
-export class ListingComponent {
+export class ListingComponent implements OnInit {
   propertyForm: FormGroup;
   submitted = false;
-  imagePreview: string = 'assets/home13.jpeg'; 
+  imagePreview: string = 'assets/home13.jpeg';
 
   constructor(
     private fb: FormBuilder,
@@ -34,49 +33,95 @@ export class ListingComponent {
       country: ['', Validators.required],
       amount: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
       description: ['', Validators.required],
-      imageUrl: ['']
+      image1: [''],
+      image2: [''],
+      image3: ['']
     });
   }
 
-  onImageSelected(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
+  // ✅ FIXED MULTIPLE IMAGE HANDLING
+  // onImageSelected(event: any) {
+  //   const files = event.target.files;
 
-      reader.onload = () => {
-        this.imagePreview = reader.result as string;
-        this.propertyForm.patchValue({ imageUrl: this.imagePreview });
-      };
+  //   if (files.length > 0) {
+  //     for (let i = 0; i < files.length && i < 3; i++) {
+  //       const reader = new FileReader();
 
-      reader.readAsDataURL(file);
+  //       reader.onload = () => {
+  //         const image = reader.result as string;
+
+  //         if (i === 0) {
+  //           this.propertyForm.patchValue({ image1: image });
+  //           this.imagePreview = image;
+  //         }
+
+  //         if (i === 1) {
+  //           this.propertyForm.patchValue({ image2: image });
+  //         }
+
+  //         if (i === 2) {
+  //           this.propertyForm.patchValue({ image3: image });
+  //         }
+  //       };
+
+  //       reader.readAsDataURL(files[i]);
+  //     }
+  //   }
+  // }
+
+  onImageSelected(event: any, index: number) {
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    const image = reader.result as string;
+
+    if (index === 1) {
+      this.propertyForm.patchValue({ image1: image });
     }
-  }
 
-  ngOnInit() {
-  const editData = this.propertyService.getEditProperty();
-  if (editData) {
-    this.propertyForm.patchValue(editData.property);
-  }
+    if (index === 2) {
+      this.propertyForm.patchValue({ image2: image });
+    }
+
+    if (index === 3) {
+      this.propertyForm.patchValue({ image3: image });
+    }
+  };
+
+  reader.readAsDataURL(file);
 }
-
-onCreate() {
-  this.submitted = true;
-
-  if (this.propertyForm.valid) {
-    const formValue = this.propertyForm.value;
+  ngOnInit() {
     const editData = this.propertyService.getEditProperty();
 
     if (editData) {
-      this.propertyService.updateProperty(formValue, editData.index);
-    } else {
-      this.propertyService.addProperty(formValue);
+      this.propertyForm.patchValue(editData.property);
     }
-
-    this.router.navigate(['dashboard/properties']);
-  } else {
-    this.propertyForm.markAllAsTouched();
   }
-}
 
+  onCreate() {
+    this.submitted = true;
 
+    if (this.propertyForm.valid) {
+      const formValue = this.propertyForm.value;
+      const editData = this.propertyService.getEditProperty();
+
+      if (editData) {
+        this.propertyService.updateProperty(formValue, editData.index);
+      } else {
+        this.propertyService.addProperty(formValue);
+      }
+
+      // ✅ CLEAR EDIT MODE AFTER SAVE
+      localStorage.removeItem('editProperty');
+
+      // ✅ NAVIGATE AFTER SAVE
+      this.router.navigate(['dashboard/properties']);
+    } else {
+      this.propertyForm.markAllAsTouched();
+    }
+  }
 }

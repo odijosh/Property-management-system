@@ -1,4 +1,4 @@
-<div class="mainwrapper">
+<div class="mainwrapper dashboard-page" >
   <div class="nav">
     <div class="innernav">
       <h2>ChillHaven</h2>
@@ -28,8 +28,8 @@
         </div>
 
         <div class="profile" (click)="navigateTo('dashboard/profile')">
-          <i class="bi bi-person-fill"></i>
-          <span>Profile</span>
+          <!-- <i class="bi bi-person-fill"></i> -->
+          <!-- <span>Profile</span> -->
         </div>
 
         <!-- LOGOUT BUTTON -->
@@ -54,4 +54,15 @@
       <router-outlet></router-outlet>
     </div>
   </div>
+
+  <div class="modal-backdrop" *ngIf="showLogoutModal">
+  <div class="modal">
+    <h3 style="margin-left: 40px; margin-top: 40px;">Do you want to logout?</h3>
+
+    <div class="modal-buttons">
+      <button (click)="confirmLogout()">Yes</button>
+      <button (click)="cancelLogout()">No</button>
+    </div>
+  </div>
+</div>
 </div>

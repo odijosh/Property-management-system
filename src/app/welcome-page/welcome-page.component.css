@@ -1,0 +1,115 @@
+.welcomewarp {
+  height: 100vh;
+  width: 100%;
+  background-image: url('../../assets/loginpicture.jpg'); /* put your image in assets folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.nav{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid lightgrey;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+}
+
+.innernav{
+   width: 97%;
+   height: 100%;
+   display: flex;
+   justify-content: space-between;
+   /* background-color: black; */
+
+   h2{
+    color: blue;
+   }
+
+   h3{
+    color: orangered;
+   }
+}
+
+select {
+  margin-top: 10px;
+  padding: 8px;
+  width: 100%;
+}
+
+.centertext{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1{
+    color: white;
+    font-size: 70px;
+
+  }
+}
+
+/* .dropdownwrap {
+  width: 150px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+  margin-top: 10px;
+}
+
+.dropdownbox {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.dropdownbox:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdownbox:last-child {
+  border-bottom: none;
+}
+
+.loginwrap {
+  position: relative;
+  display: inline-block;
+}
+ */
+
+ .loginwrap {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownmenu {
+  position: absolute;
+  top: 45px;   /* below button */
+  right: 0;
+  background: white;
+  width: 120px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  z-index: 1000;
+}
+
+.dropdownbox {
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  color: blue;
+}
+
+.dropdownbox:hover {
+  background: #f0f0f0;
+}

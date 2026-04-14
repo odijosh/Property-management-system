@@ -1,0 +1,268 @@
+.homewrapper{
+  width: 100%;
+  height: max-content;
+
+}
+
+.nav{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid lightgrey;
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.innernav{
+   width: 97%;
+   height: 100%;
+   display: flex;
+   justify-content: space-between;
+
+
+   h2{
+    color: blue;
+   }
+
+   h3{
+    color: orangered;
+   }
+}
+
+.logoutwrapper{
+  width: 100px;
+  height: 35px;
+  background-color: red;
+  color: white;
+  border-radius: 15px;
+  border: none;
+  margin-top: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  height: 120px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+
+  h3{
+    color: black;
+    margin-top: 5px;
+    margin-right: 50px;
+    font-size: 18px;
+  }
+}
+
+.modal-buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.modal-buttons button:first-child {
+  background-color: orangered;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: gray;
+  color: white;
+}
+
+.imagedisplaywrap{
+  width: 100%;
+  height: 70vh;
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(../../assets/loginpicture.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  h1{
+    font-size: 50px;
+    color: blue;
+  }
+
+  input{
+      width: 400px;
+      height: 35px;
+      border-radius: 10px;
+      border: none;
+      padding-left: 10px;
+    }
+}
+
+.imageboxwrap{
+  width: 40%;
+  height: max-content;
+  border-radius: 10px;
+  background-color: ghostwhite;
+  margin-left: 90px;
+  margin-top: 90px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* width: 250px; */
+
+  img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+}
+
+.imagewrap{
+   width: 40%;
+  height: max-content;
+  border-radius: 10px;
+  background-color: ghostwhite;
+  margin-left: 140px;
+  margin-top: 90px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+}
+
+.textwrapper{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin-top: -10px;
+
+  h2{
+    padding-right: 10px;
+  }
+
+}
+
+.textcont{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin-top: -10px;
+
+  h2{
+    padding-right: 10px;
+  }
+
+
+}
+
+.locateholder{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.roomwrap{
+  display: flex;
+  gap: 14px;
+  margin-left: 10px;
+  margin-top: 35px;
+}
+
+.productswrapper{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.innerimagewrap{
+  width: 100%;
+  height: 200px;
+  background-color: gray;
+  background-image: url(../../assets/home13.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.innerimagewrapper{
+  width: 100%;
+  height: 200px;
+  background-color: gray;
+  background-image: url(../../assets/loginpicture.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  height: 160px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+
+  h3{
+    color: black;
+    margin-top: 5px;
+    margin-right: 50px;
+    font-size: 18px;
+  }
+}
+
+.modal-buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.modal-buttons button:first-child {
+  background-color: orangered;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: gray;
+  color: white;
+}
+

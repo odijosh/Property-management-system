@@ -2,7 +2,7 @@
   <div class="sidewrapper"></div>
 
   <div class="loginfullwrap">
-    <h1>ADMIN LOGIN</h1>
+    <h1>USER LOGIN</h1>
 
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <div class="logininnerwrap">
@@ -28,7 +28,7 @@
             *ngIf="
             loginForm.get('email')?.touched &&
             loginForm.get('email')?.value &&
-            loginForm.get('email')?.errors?.['mustBeChikaEmail']
+            loginForm.get('email')?.errors?.['mustBeJudeEmail']
           "
             style="color: red"
           >
@@ -39,7 +39,8 @@
         <div class="passwordwrapper">
           <label>Password</label>
           <!-- <input type="password" formControlName="password" /> -->
-           <div style="position: relative;">
+
+          <div style="position: relative;">
     <input
       [type]="showPassword ? 'text' : 'password'"
       formControlName="password"
@@ -63,8 +64,6 @@
     </span>
   </div>
 
-
-
           <small
             *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
             style="color: red"
@@ -85,3 +84,4 @@
     </form>
   </div>
 </div>
+

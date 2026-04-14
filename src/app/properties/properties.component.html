@@ -8,10 +8,48 @@
       </div>
     </div>
 
-    <div style="width: 100%; height: 300px; background-color: gray;">
+    <!-- <div style="width: 100%; height: 200px; background-color: gray;">
       <img [src]="property.imageUrl" alt="Property image" />
     </div>
+    <div style="display: flex; width: 100%; height: 200px; ">
+      <img [src]="property.imageUrl" alt="Property image" />
+      <img [src]="property.imageUrl" alt="Property image" />
+    </div> -->
 
+
+    <!-- MULTIPLE IMAGES -->
+    <!-- <div style="display: flex; gap: 10px;">
+      <img *ngIf="property.image1" [src]="property.image1" width="80" />
+      <img *ngIf="property.image2" [src]="property.image2" width="80" />
+      <img *ngIf="property.image3" [src]="property.image3" width="80" />
+    </div> -->
+
+
+    <!-- MAIN IMAGE (same style as details page picwrap) -->
+<div class="picwrap">
+  <img
+    [src]="property.image1 || 'assets/home13.jpeg'"
+    style="width:100%; height:100%; object-fit:cover;"
+  />
+</div>
+
+<!-- SECOND IMAGES (same structure as details page) -->
+<div class="secondpicwrapper">
+
+   <div class="inner1">
+    <img
+      [src]="property.image2 || 'assets/home13.jpeg'"
+      style="width:100%; height:100%; object-fit:cover;"
+    />
+  </div>
+
+  <div class="inner2">
+    <img
+      [src]="property.image3 || 'assets/home13.jpeg'"
+      style="width:100%; height:100%; object-fit:cover;"
+    />
+  </div>
+</div>
     <div style="width: 97%; height: 10px; display: flex; justify-content: flex-end;">
       <h2>₦{{ property.amount | number }}</h2>
     </div>
@@ -34,9 +72,11 @@
         <button (click)="editProperty(property, i)" class="editwrap">Edit</button>
       </div>
     </div>
+
+    <div style="width: 100%; height: 20px;"></div>
   </div>
 
- 
+
   <div class="modal-backdrop" *ngIf="showModal">
     <div class="modal-box">
       <p>Are you sure you want to delete this property?</p>

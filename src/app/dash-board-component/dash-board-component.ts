@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
-import { AuthService } from '../auth.service'; 
+import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class DashBoardComponentComponent {
   showLogoutModal = false;
 
+
   constructor(
     private router: Router,
     private authService: AuthService
@@ -24,11 +25,15 @@ export class DashBoardComponentComponent {
 
   confirmLogout() {
     this.authService.logout();
-    this.router.navigate(['/']);
+    this.router.navigate(['']);
     this.showLogoutModal = false;
   }
 
   cancelLogout() {
     this.showLogoutModal = false;
   }
+
+   logout() {
+  this.router.navigate(['']);
+}
 }

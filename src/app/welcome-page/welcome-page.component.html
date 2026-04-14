@@ -1,0 +1,56 @@
+<div class="welcomewarp">
+
+
+  <div class="nav">
+    <div class="innernav">
+      <h2>ChillHaven</h2>
+
+      <div>
+        <!-- <button style="width: 100px; height: 40px; background-color: blue; margin-top: 10px; border-radius: 10px;
+        color: white; border: 1px solid black; cursor: pointer;" (click)="toggleDropdown()">LOGIN</button>
+
+        <div *ngIf="showDropdown" style="margin-top: -10px;">
+          <select [(ngModel)]="selectedRole" (change)="onRoleSelect()">
+
+            <option value="tenant">Tenant</option>
+            <option value="landlord">Landlord</option>
+          </select>
+        </div> -->
+
+        <button
+          style="width: 100px; height: 40px; background-color: blue; margin-top: 10px; border-radius: 10px;
+          color: white; border: 1px solid black; cursor: pointer; font-weight: 800;"
+          (click)="toggleDropdown()"
+        >
+          LOGIN
+        </button>
+
+        <!-- dropdown only appears after login click -->
+        <!-- <div *ngIf="showDropdown" style="margin-top: 10px;">
+          <select [(ngModel)]="selectedRole" (change)="onRoleSelect()">
+            <option value="tenant">Tenant</option>
+            <option value="landlord">Landlord</option>
+          </select>
+        </div> -->
+
+
+       <div *ngIf="showDropdown" class="dropdownwrap">
+
+  <div class="dropdownbox" (click)="selectRole('tenant')">
+    Tenant
+  </div>
+
+  <div class="dropdownbox" (click)="selectRole('landlord')">
+    Landlord
+  </div>
+
+</div>
+
+      </div>
+
+    </div>
+  </div>
+      <div class="centertext">
+  <h1 >W<span style="color: blue;">e</span>l<span style="color: blue;">c</span>om<span style="color: blue;">e</span></h1>
+  </div>
+</div>
